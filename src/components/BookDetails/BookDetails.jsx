@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import addToStoredReadList from "../Utils/addToDB";
 
 export default function BookDetails() {
   const { bookId } = useParams();
@@ -18,6 +19,10 @@ export default function BookDetails() {
     yearOfPublishing,
     rating,
   } = book;
+
+  const handelMarkAsRead = (id) => {
+    addToStoredReadList(id);
+  };
   return (
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -46,8 +51,15 @@ export default function BookDetails() {
               <p>Rating : {rating}</p>
             </div>
             <div className="flex gap-6 mt-3">
-            <button className="btn btn-outline btn-accent">Read</button>
-              <button className="btn btn-active btn-accent">Wish List</button>
+              <button
+                onClick={() => handelMarkAsRead(bookId)}
+                className="btn btn-outline btn-accent"
+              >
+                Mark as Read
+              </button>
+              <button className="btn btn-active btn-accent">
+                Add to Wish List
+              </button>
             </div>
           </div>
         </div>
