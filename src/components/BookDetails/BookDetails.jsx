@@ -16,12 +16,15 @@ export default function BookDetails() {
     totalPages,
     publisher,
     yearOfPublishing,
-    rating
+    rating,
   } = book;
   return (
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
-          <img src={image} className=" rounded-lg shadow-2xl lg:h-[564px] max-sm:h-[364px] mb-6" />
+        <img
+          src={image}
+          className=" rounded-lg shadow-2xl lg:h-[564px] max-sm:h-[364px] mb-6"
+        />
         <div className="lg:p-10">
           <h1 className="lg:text-5xl font-bold">{bookName}</h1>
           <p className="py-3">By : {author}</p>
@@ -37,10 +40,14 @@ export default function BookDetails() {
               ))}
             </div>
             <div>
-                <p>Number of pages : {totalPages}</p>
-                <p>Publisher : {publisher}</p>
-                <p>Year of Publishing : {yearOfPublishing}</p>
-                <p>Rating : {rating}</p>
+              <p>Number of pages : {totalPages}</p>
+              <p>Publisher : {publisher}</p>
+              <p>Year of Publishing : {yearOfPublishing}</p>
+              <p>Rating : {rating}</p>
+            </div>
+            <div className="flex gap-6 mt-3">
+            <button className="btn btn-outline btn-accent">Read</button>
+              <button className="btn btn-active btn-accent">Wish List</button>
             </div>
           </div>
         </div>
